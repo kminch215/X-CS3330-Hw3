@@ -2,6 +2,31 @@ package edu.mu;
 
 public class MediaProduct {
 	private String title;
+
+	private String getTitle() {
+		return title;
+	}
+	private void setTitle(String title) {
+		this.title = title;
+	}
+	private double getPrice() {
+		return price;
+	}
+	private void setPrice(double price) {
+		this.price = price;
+	}
+	private int getYear() {
+		return year;
+	}
+	private void setYear(int year) {
+		this.year = year;
+	}
+	private Genre getGenre() {
+		return genre;
+	}
+	private void setGenre(Genre genre) {
+		this.genre = genre;
+	}
 	private double price;
 	private int year;
 	private Genre genre;
