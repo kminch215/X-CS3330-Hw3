@@ -32,7 +32,7 @@ public class MediaProduct {
 	private Genre genre;
 }
 /*
-Implement a base class MediaProduct with protected aLributes/fields !tle(String),
+Implement a base class MediaProduct with protected atributes/fields title(String),
 price(double), year(int) and genre(Genre). The genre should be represented using an enum.
 • Create subclasses VinylRecordProduct, CDRecordProduct, and TapeRecordProduct, each
 represenHng a different type of media product. Ensure these classes inherit from MediaProduct
