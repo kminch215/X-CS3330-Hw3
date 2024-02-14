@@ -1,15 +1,11 @@
 package edu.mu;
 
 public enum Genre {
-
+	ROCK,
+	POP,
+	JAZZ,
+	CLASSICAL,
+	HIP_HOP,
+	ELECTRONIC,
+	CHILDREN
 }
-/*
-• The genres are:
-o ROCK,
-o POP,
-o JAZZ,
-o CLASSICAL,
-o HIP_HOP,
-o ELECTRONIC,
-o CHILDREN
-*/
