@@ -30,6 +30,13 @@ public class MediaProduct {
 	private double price;
 	private int year;
 	private Genre genre;
+	
+	public MediaProduct(String title, double price, int year, Genre genre) {
+		this.title = title;
+		this.price = price;
+		this.year = year;
+		this.genre = genre;
+	}
 }
 /*
 Implement a base class MediaProduct with protected atributes/fields title(String),
