@@ -42,9 +42,6 @@ public class MediaProduct {
 	private void setGenre(Genre genre) {
 		this.genre = genre;
 	}
-	private double price;
-	private int year;
-	private Genre genre;
 	
 	public MediaProduct(String title, double price, int year, Genre genre) {
 		this.title = title;
