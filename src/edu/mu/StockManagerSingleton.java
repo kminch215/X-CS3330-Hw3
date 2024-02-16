@@ -48,12 +48,21 @@ public class StockManagerSingleton {
 		public void printListOfMediaProduct(ArrayList<MediaProduct> productList) {
 		}
 		//Prints the given media product list.
+		
 		public ArrayList<VinylRecordProduct> getVinylRecordList(ArrayList<MediaProduct> productList) {
-			return null;
+			ArrayList<VinylRecordProduct> vinylProductList = new  ArrayList<VinylRecordProduct>();
+			for(MediaProduct product : productList)
+			{
+				if(product instanceof VinylRecordProduct) {
+					vinylProductList.add((VinylRecordProduct)product);
+				}
+			}
+			return vinylProductList;
 		}
 		//Gets the media products as an ArrayList.
 		//This creates a new ArrayList of VinylRecordProduct that filters the vinyl records and returns the ArrayList.
 		//scanner.close();
+		
 		public ArrayList<CDRecordProduct> getCDRecordsList(ArrayList<MediaProduct> productList) {
 			return null;
 		}
