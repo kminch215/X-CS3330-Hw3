@@ -109,6 +109,9 @@ public class StockManagerSingleton {
 		//This creates a new ArrayList of media products that is below the maxPrice.
 			//scanner.close();
 		public void printListOfMediaProduct(ArrayList<MediaProduct> productList) {
+			for(MediaProduct products: productList) {
+				System.out.println(products.toString());
+			}
 		}
 		//Prints the given media product list.
 		
