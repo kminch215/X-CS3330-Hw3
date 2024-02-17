@@ -55,7 +55,7 @@ public class StockManagerSingleton {
 		            // Add more variables as needed
 
 		            // Do something with the data, for example, print it
-		            System.out.println("Item: " + itemName + ", Price: " + price + ", Year: " + year + ", Genre: " + genre + ", Enum: " + enumGenre);
+		            //System.out.println("Item: " + itemName + ", Price: " + price + ", Year: " + year + ", Genre: " + genre + ", Enum: " + enumGenre);
 		            
 		            if(mediaType.equals("CD")) {
 	                	product = new CDRecordProduct(itemName, price, year, enumGenre);
@@ -121,18 +121,26 @@ public class StockManagerSingleton {
 			return true;
 		}
 		
-		public ArrayList<MediaProduct> getMediaProductBelowPrice(int maxPrice) {
-			return null;
-		}
 		//Gets the media products that are below the given maxPrice.
 		//This creates a new ArrayList of media products that is below the maxPrice.
-			//scanner.close();
+	    public ArrayList<MediaProduct> getMediaProductBelowPrice(int maxPrice) {
+	    	ArrayList<MediaProduct> list = new ArrayList<MediaProduct>();
+			for(MediaProduct products: StockManagerSingleton.getInstance().getArray()) {
+				if(products.getPrice() < maxPrice) {
+					list.add(products);
+				}
+			}
+			//printListOfMediaProduct(list);
+			return list;
+		}
+		
+	    //Prints the given media product list.
 		public void printListOfMediaProduct(ArrayList<MediaProduct> productList) {
 			for(MediaProduct products: productList) {
 				System.out.println(products.toString());
 			}
 		}
-		//Prints the given media product list.
+		
 		
 		public ArrayList<VinylRecordProduct> getVinylRecordList(ArrayList<MediaProduct> productList) {
 			ArrayList<VinylRecordProduct> vinylProductList = new  ArrayList<VinylRecordProduct>();
