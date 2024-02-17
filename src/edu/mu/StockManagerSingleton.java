@@ -1,23 +1,66 @@
 package edu.mu;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import edu.mu.MediaProduct.Genre;
+
 public class StockManagerSingleton {
 
-	public static void main(String[] args) {
-
-	    //initializeStock
-	}
+	private String fileName = "inventory.csv";
+	private ArrayList<MediaProduct> inventory = new ArrayList<MediaProduct>();
+	
 	    public boolean intializeStock() {
-	    	//read initial inventory data from a csv file located in src 
-	    	//consider using the split() method for tokenization
-	    	//parses the csv file to create media product objects and adds them to the inventory
-	    	//return true if the initialization is successful else false <- catch
-	    	System.out.println("false!");
+	    	MediaProduct product;
+	    	try {
+		        File file = new File(fileName);
+		        Scanner scanner = new Scanner(file);
+	            // Skip the header if present
+		        if (scanner.hasNextLine()) {
+		            scanner.nextLine(); // Assuming the first line is a header, if not remove this line
+		        }
+
+		        // Read the data
+		        while (scanner.hasNextLine()) {
+		            String line = scanner.nextLine();
+		            String[] parts = line.split(","); // Assuming the CSV is comma-separated
+
+		            // Access each part of the CSV row
+		            String mediaType = parts[0];
+		            String itemName = parts[1];
+		            double price = Double.parseDouble(parts[2]);
+		            int year = Integer.parseInt(parts[3]);
+		            String genre = parts[4];
+		            Genre enumGenre = Genre.valueOf(genre);
+		            // Add more variables as needed
+
+		            // Do something with the data, for example, print it
+		            System.out.println("Item: " + itemName + ", Price: " + price + ", Year: " + year + ", Genre: " + genre + ", Enum: " + enumGenre);
+		            
+		            if(mediaType.equals("CD")) {
+	                	product = new CDRecordProduct(itemName, price, year, enumGenre);
+	                }
+	                else if(mediaType.equals("Vinyl"))
+	                {
+	                	product = new VinylRecordProduct(itemName, price, year, enumGenre);
+	                }
+	                else if(mediaType.equals("Tape"))
+	                {
+	                	product = new TapeRecordProduct(itemName, price, year, enumGenre);
+	                }
+		        }
+
+		        scanner.close();
+		    } catch (FileNotFoundException e) {
+		        System.out.println("File not found: " + fileName);
+		        e.printStackTrace();
+		        return false;
+		    }
 	    	return true;
 	    }
+	    
 		public boolean updateItemPrice(MediaProduct product, double newPrice) {
 			return false;
 		}
@@ -39,6 +82,7 @@ public class StockManagerSingleton {
 		//Saves the updated inventory back to the CSV file located at inventoryFilePath.
 		//Overwrites the exisHng file with the updated inventory data.
 		//Returns true if the saving is successful, false otherwise (file does not exist, or file empty).
+		
 		public ArrayList<MediaProduct> getMediaProductBelowPrice(int maxPrice) {
 			return null;
 		}
