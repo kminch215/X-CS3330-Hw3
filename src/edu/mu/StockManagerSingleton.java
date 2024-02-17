@@ -1,15 +1,16 @@
 package edu.mu;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import edu.mu.MediaProduct.Genre;
-
 public class StockManagerSingleton {
 
-	private String fileName = "inventory.csv";
+	private final String fileName = "inventory.csv";
 	private ArrayList<MediaProduct> inventory = new ArrayList<MediaProduct>();
 	
 	    public boolean intializeStock() {
@@ -87,12 +88,19 @@ public class StockManagerSingleton {
 			return false;
 		}
 	
-		public boolean saveStock() {
-			return false;
-		}
 		//Saves the updated inventory back to the CSV file located at inventoryFilePath.
-		//Overwrites the exisHng file with the updated inventory data.
+		//Overwrites the existing file with the updated inventory data.
 		//Returns true if the saving is successful, false otherwise (file does not exist, or file empty).
+		public boolean saveStock() {
+			try {
+				BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));
+				bw.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+					return false;
+				}
+			return true;
+		}
 		
 		public ArrayList<MediaProduct> getMediaProductBelowPrice(int maxPrice) {
 			return null;
