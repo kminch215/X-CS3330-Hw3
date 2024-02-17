@@ -37,8 +37,3 @@ public class Main {
 	        System.out.println("File not found: " + filename);
 	        e.printStackTrace();
 	    }
-	    //public boolean intializeStock {
-	    	
-	    //}
-	}
-}
