@@ -38,4 +38,10 @@ public class MediaProduct {
 		System.out.println(genre);
     }
 
+	@Override
+	public String toString() {
+		return "MediaProduct [title=" + title + ", price=" + price + ", year=" + year + ", genre=" + genre + "]";
+	}
+    
+
 }
