@@ -10,11 +10,28 @@ import java.util.Scanner;
 
 public class StockManagerSingleton {
 
-	private final String fileName = "inventory.csv";
-	private ArrayList<MediaProduct> inventory = new ArrayList<MediaProduct>();
+	private final static String fileName = "inventory.csv";
+	
+	private static StockManagerSingleton mInstance;
+    private ArrayList<MediaProduct> inventory = null;
+	
+	public static StockManagerSingleton getInstance() {
+        if(mInstance == null)
+            mInstance = new StockManagerSingleton();
+
+        return mInstance;
+    }
+	
+	 private StockManagerSingleton() {
+        inventory = new ArrayList<MediaProduct>();
+      }
+	 
+    public ArrayList<MediaProduct> getArray() {
+       return this.inventory;
+     }
 	
 	    public boolean intializeStock() {
-	    	MediaProduct product;
+	    	MediaProduct product = null;
 	    	try {
 		        File file = new File(fileName);
 		        Scanner scanner = new Scanner(file);
@@ -51,18 +68,20 @@ public class StockManagerSingleton {
 	                {
 	                	product = new TapeRecordProduct(itemName, price, year, enumGenre);
 	                }
+		            
+		            StockManagerSingleton.getInstance().addItem(product);
 		        }
-
 		        scanner.close();
 		    } catch (FileNotFoundException e) {
 		        System.out.println("File not found: " + fileName);
 		        e.printStackTrace();
 		        return false;
 		    }
+	    	
 	    	return true;
 	    }
 	    
-		public boolean updateItemPrice(MediaProduct product, double newPrice) {
+		/*public boolean updateItemPrice(MediaProduct product, double newPrice) {
 			for (MediaProduct p : inventory) {
 				if (p.equals(product)) {
 					p.setPrice(newPrice);
@@ -70,7 +89,7 @@ public class StockManagerSingleton {
 				}
 			}
 			return false;
-		}
+		}*/
 
 		public boolean addItem(MediaProduct product) {
 			if (!inventory.contains(product)) {
