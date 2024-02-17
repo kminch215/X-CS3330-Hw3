@@ -109,7 +109,25 @@ public class StockManagerSingleton {
 		//Returns true if the saving is successful, false otherwise (file does not exist, or file empty).
 		public boolean saveStock() {
 			try {
-				BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));
+				BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, false));
+				//System.out.println("I'm good here");
+				for(MediaProduct products: StockManagerSingleton.getInstance().getArray()) {
+					
+					if(products instanceof VinylRecordProduct) {
+						String type = "Vinyl";
+						bw.write(type + "," + products.getTitle() + "," + products.getPrice() + "," + products.getYear() + "," + products.getGenre());
+					}
+					else if(products instanceof CDRecordProduct) {
+						//System.out.println("I'm good here too");
+						String type = "CD";
+						bw.write(type + "," + products.getTitle() + "," + products.getPrice() + "," + products.getYear() + "," + products.getGenre());
+					}
+					else if(products instanceof TapeRecordProduct) {
+						String type = "Tape";
+						bw.write(type + "," + products.getTitle() + "," + products.getPrice() + "," + products.getYear() + "," + products.getGenre());
+					}	
+				}
+				bw.flush();
 				bw.close();
 				} catch (IOException e) {
 					e.printStackTrace();
