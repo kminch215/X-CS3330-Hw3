@@ -15,4 +15,6 @@ The assignment is to create a Java program for n inventory management system for
 ### How to run:
 1. First make sure to have a way to compile and run Java files. It also might help to have an IDE like Eclipse to run the code.
 2. Implement a syntactically and logically correct program to put in the main() method in the Main Class. This method is going to be accessing the `StockManagerSingleton` class and calling the different methods to manage the media product shop.
-3. After saving the Main Class file, then run the code using your desired method. For this assignment we used the Run feature in the Eclipse IDE
+   - To access the methods, use the syntax structure `StockManagerSingleton.getInstance()` followed by the method name you want to call.
+   - To access the instance, use the syntax structure `StockManagerSingleton.getInstance().getArray()`
+4. After saving the Main Class file, then run the code using your desired method. For this assignment we used the Run feature in the Eclipse IDE
