@@ -62,20 +62,31 @@ public class StockManagerSingleton {
 	    }
 	    
 		public boolean updateItemPrice(MediaProduct product, double newPrice) {
+			for (MediaProduct p : inventory) {
+				if (p.equals(product)) {
+					p.setPrice(newPrice);
+					return true;
+				}
+			}
 			return false;
 		}
-		//Updates the price of the given media product to the newPrice.
-		//Returns true if the update is successful, false otherwise
+
 		public boolean addItem(MediaProduct product) {
+			if (!inventory.contains(product)) {
+				inventory.add(product);
+				return true;
+			}
 			return false;
 		}
-		//Adds a new media product to the inventory.
-		//Returns true if the addiHon is successful, false otherwise.
+		
 		public boolean removeItem(MediaProduct product) {
+			if (inventory.contains(product)) {
+				inventory.remove(product);
+				return true;
+			}
 			return false;
 		}
-		//Removes the given media product from the inventory.
-		//Returns true if the removal is successful, false otherwise.
+	
 		public boolean saveStock() {
 			return false;
 		}
