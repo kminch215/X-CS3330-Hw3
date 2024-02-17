@@ -1,60 +1,51 @@
 package edu.mu;
 
 public class MediaProduct {
+	protected String type;
+    protected String title;
+    protected double price;
+    protected int year;
+    protected Genre genre;
 
-	protected double price;
-	protected int year;
-	protected Genre genre;
-	
-	public enum Genre {
-		ROCK,
-		POP,
-		JAZZ,
-		CLASSICAL,
-		HIP_HOP,
-		ELECTRONIC,
-		CHILDREN
-	}
-	
-	public String title;
+    public MediaProduct(String type, String title, double price, int year, Genre genre) {
+        this.type = type;
+        this.title = title;
+        this.price = price;
+        this.year = year;
+        this.genre = genre;
+    }
 
-	public String getTitle() {
-		return title;
+    public static void main(String[] args) {
+    }
+	public String getType() {
+        return type;
+    }
+	public void setType() {
+		System.out.println(type);
 	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public double getPrice() {
-		return price;
-	}
-	public void setPrice(double price) {
-		this.price = price;
-	}
-	public int getYear() {
-		return year;
-	}
-	public void setYear(int year) {
-		this.year = year;
-	}
-	public Genre getGenre() {
-		return genre;
-	}
-	public void setGenre(Genre genre) {
-		this.genre = genre;
-	}
-	public MediaProduct(String title, double price, int year, Genre genre) {
-		this.title = title;
-		this.price = price;
-		this.year = year;
-		this.genre = genre;
-	}
+    public String getTitle() {
+        return title;
+    }
+    public void setTitle() {
+		System.out.println(title);
+    }
+    public double getPrice() {
+        return price;
+    }
+    public void setPrice() {
+		System.out.println(price);
+    }
+    public int getYear() {
+        return year;
+    }
+    public void setYear() {
+		System.out.println(year);
+    }
+    public Genre getGenre() {
+        return genre;
+    }
+    public void setGenre() {
+		System.out.println(genre);
+    }
 
 }
-/*
-Implement a base class MediaProduct with protected attributes/fields title(String),				X
-price(double), year(int) and genre(Genre). The genre should be represented using an enum.		X
-• Create subclasses VinylRecordProduct, CDRecordProduct, and TapeRecordProduct, each			_
-represenHng a different type of media product. Ensure these classes inherit from MediaProduct	Z
-and contain a constructor that uses the super keyword to iniHalize the attributes.				_
-• Implement copy constructors for each media product to prevent informaHon leaks.				_
-*/
