@@ -1,7 +1,6 @@
 package edu.mu;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -141,7 +140,8 @@ public class StockManagerSingleton {
 			}
 		}
 		
-		
+		//Gets the media products as an ArrayList.
+		//This creates a new ArrayList of VinylRecordProduct that filters the vinyl records and returns the ArrayList.
 		public ArrayList<VinylRecordProduct> getVinylRecordList(ArrayList<MediaProduct> productList) {
 			ArrayList<VinylRecordProduct> vinylProductList = new  ArrayList<VinylRecordProduct>();
 			for(MediaProduct product : productList)
@@ -152,21 +152,32 @@ public class StockManagerSingleton {
 			}
 			return vinylProductList;
 		}
-		//Gets the media products as an ArrayList.
-		//This creates a new ArrayList of VinylRecordProduct that filters the vinyl records and returns the ArrayList.
-		//scanner.close();
 		
-		public ArrayList<CDRecordProduct> getCDRecordsList(ArrayList<MediaProduct> productList) {
-			return null;
-		}
 		//Gets the media products as an ArrayList.
 		//This creates a new ArrayList of CDRecordProduct that filters the CD records and returns the ArrayList.
-		//scanner.close();
-		public ArrayList<TapeRecordProduct> getTapeRecordList(ArrayList<MediaProduct> productList) {
-			return null;
+		public ArrayList<CDRecordProduct> getCDRecordsList(ArrayList<MediaProduct> productList) {
+			ArrayList<CDRecordProduct> cdProductList = new  ArrayList<CDRecordProduct>();
+			for(MediaProduct product : productList)
+			{
+				if(product instanceof CDRecordProduct) {
+					cdProductList.add((CDRecordProduct)product);
+				}
+			}
+			return cdProductList;
 		}
+	
+		
 		//Gets the media products as an ArrayList.
 		//This creates a new ArrayList of TapeRecordProduct that filters the tape records and
 		//returns the ArrayList.
-		//scanner.close();
+		public ArrayList<TapeRecordProduct> getTapeRecordList(ArrayList<MediaProduct> productList) {
+			ArrayList<TapeRecordProduct> tapeProductList = new  ArrayList<TapeRecordProduct>();
+			for(MediaProduct product : productList)
+			{
+				if(product instanceof TapeRecordProduct) {
+					tapeProductList.add((TapeRecordProduct)product);
+				}
+			}
+			return tapeProductList;
+		}
 }
