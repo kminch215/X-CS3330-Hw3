@@ -1,4 +1,5 @@
 # X-Homework_3
+Names: Kendra Minch, Samantha Whitaker, Sarah Greenwood, and Lane Parker
 
 The assignment is to create a Java program for n inventory management system for a media product shop. There are two classes that are implemented: `MediaProduct` and `StockManagerSingleton`. 
 
