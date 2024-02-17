@@ -81,7 +81,7 @@ public class StockManagerSingleton {
 	    	return true;
 	    }
 	    
-		/*public boolean updateItemPrice(MediaProduct product, double newPrice) {
+		public boolean updateItemPrice(MediaProduct product, double newPrice) {
 			for (MediaProduct p : inventory) {
 				if (p.equals(product)) {
 					p.setPrice(newPrice);
@@ -89,7 +89,7 @@ public class StockManagerSingleton {
 				}
 			}
 			return false;
-		}*/
+		}
 
 		public boolean addItem(MediaProduct product) {
 			if (!inventory.contains(product)) {
