@@ -1,28 +1,18 @@
 package edu.mu;
 
 public class MediaProduct {
-	protected String type;
     protected String title;
     protected double price;
     protected int year;
     protected Genre genre;
 
-    public MediaProduct(String type, String title, double price, int year, Genre genre) {
-        this.type = type;
+    public MediaProduct(String title, double price, int year, Genre genre) {
         this.title = title;
         this.price = price;
         this.year = year;
         this.genre = genre;
     }
 
-    public static void main(String[] args) {
-    }
-	public String getType() {
-        return type;
-    }
-	public void setType() {
-		System.out.println(type);
-	}
     public String getTitle() {
         return title;
     }
